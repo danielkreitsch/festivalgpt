@@ -1,0 +1,63 @@
+# System Files
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+.idea/
+.vscode/
+.vs/
+.project/
+.classpath/
+.c9/
+.settings/
+.consulo/
+*.launch
+*.sublime-workspace
+*.booproj
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.svd
+*.tmp
+*.user
+*.userprefs
+*.VC.db
+*.opendb
+*.mdb
+*.mdb.meta
+*.pidb
+*.pidb.meta
+*.pdb
+*.pdb.meta
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Node
+/node_modules/
+
+# Misc
+coverage/
+typings/
+.sass-cache/
+*.env
+*.log
+connect.lock
+sysinfo.txt
+
+# Nx
+/dist/
+/tmp/
+.nx/cache/
+.nx/workspace-data/
+
+# Spring Boot
+/apps/*/build/
+.gradle/
+/apps/*/application.yml
+
+# Angular
+.angular/
+environment.ts
