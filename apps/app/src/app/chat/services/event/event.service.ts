@@ -14,4 +14,12 @@ export class EventService {
   getFestivals(searchText: Festival): Observable<Festival> {
     return this.http.post<Festival>(`${environment.apiUrl}/chat/message`, searchText)
   }
+
+  autocompleteFestivals(query: string): Observable<Festival[]> {
+    const params = new HttpParams().set('query', query)
+    return this.http.get<Festival[]>(
+      `${environment.apiUrl}/festivals/autocomplete`,
+      {params}
+    )
+  }
 }

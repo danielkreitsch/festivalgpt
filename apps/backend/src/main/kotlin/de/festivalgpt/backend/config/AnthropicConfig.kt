@@ -7,5 +7,5 @@ import org.springframework.context.annotation.Configuration
 @ConfigurationProperties(prefix = "anthropic")
 class AnthropicConfig {
   lateinit var apiKey: String
-  lateinit var apiUrl: String
+  lateinit var model: String
 }

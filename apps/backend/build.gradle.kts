@@ -34,6 +34,8 @@ dependencies {
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
   implementation("org.springframework.ai:spring-ai-qdrant-store-spring-boot-starter")
   implementation("org.springframework.ai:spring-ai-transformers-spring-boot-starter")
+  implementation("dev.langchain4j:langchain4j-anthropic-spring-boot-starter:0.32.0")
+  implementation("dev.langchain4j:langchain4j-easy-rag:0.32.0")
   implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0")
   runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
   annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")

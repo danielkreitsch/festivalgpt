@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/api/chat")
 class ChatController(
     private val anthropicClient: AnthropicClient,
-    private val festivalService: FestivalService,
-    private val chatService: ChatService
 ) {
-
   @PostMapping("/message")
   @Operation(
       summary = "Send a message",
@@ -28,11 +25,8 @@ class ChatController(
                   mediaType = "application/json",
                   schema = Schema(implementation = ChatResponse::class))])
   fun sendMessage(@RequestBody request: ChatRequest): ChatResponse {
-    // Store or update chat information
-    chatService.storeOrUpdateChat(request.chatId, request.userId, request.location)
-
     val aiResponse = anthropicClient.sendMessage(request.message)
-    val relevantFestivals = festivalService.findRelevantFestivals(request.message, request.chatId)
+    val relevantFestivals = emptyList<Festival>()
 
     return ChatResponse(
         chatId = request.chatId,

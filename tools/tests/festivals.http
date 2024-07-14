@@ -1,0 +1,30 @@
+### Test festival autocomplete
+GET {{apiUrl}}/festivals/autocomplete?query=rock
+Content-Type: {{contentType}}
+
+### Batch 1: Index 0 to 200
+POST {{apiUrl}}/festivals/import
+Content-Type: application/json
+
+{
+  "index": 0,
+  "count": 200
+}
+
+### Batch 2: Index 200 to 400
+POST {{apiUrl}}/festivals/import
+Content-Type: application/json
+
+{
+  "index": 200,
+  "count": 200
+}
+
+### Batch 3: Index 400 to 600
+POST {{apiUrl}}/festivals/import
+Content-Type: application/json
+
+{
+  "index": 400,
+  "count": 200
+}

@@ -9,22 +9,21 @@
             <div class="text-700 text-2xl mb-5">
                 <div class="flex flex-column gap-2">
                     <p-autoComplete
-                    [(ngModel)]="inputText" 
-                    placeholder="z.B. Rock am Ring, Southside,..." 
-                    [suggestions]="suggestions" 
-                    (keydown.enter)="search()" />
-                    <!--(completeMethod)="searchFestival($event)"-->
+                    [(ngModel)]="inputText"
+                    placeholder="z.B. Rock am Ring, Southside,..."
+                    [suggestions]="suggestions"
+                    (keydown)="search()" />
                 </div>
             </div>
         </div>
     </div>
-    <div *ngIf="festival" class="max-h12-rem overflow-y-auto">
-        <p-card header="{{festival.message.slice(0,12)}}" [subheader]="'Veranstaltung'">
+    <div *ngIf="festivals.length > 0" class="max-h12-rem overflow-y-auto">
+        <p-card *ngFor="let festival of festivals" [header]="festival.name" subheader="Veranstaltung">
             <!--<ng-template pTemplate="header">
                 {festival.image}
             </ng-template>-->
             <p>
-             {{festival.message}}
+             {{festival.name}}
             </p>
             <ng-template pTemplate="footer">
                     <p-button label="Zur Webseite" class="w-full" styleClass="w-full" />

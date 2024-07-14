@@ -1,7 +1,7 @@
 export interface Festival {
-    userId: string,
-    chatId: string,
-    message: string, 
-    location?: string, 
-    festivals?: any[]
+  id: number;
+  name: string;
+  startDate: string;
+  endDate: string;
+  city: string;
 }
