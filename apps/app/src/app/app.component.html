@@ -1,2 +1,20 @@
-<app-nx-welcome></app-nx-welcome>
+<div class="home-container fixed min-w-full">
+    <app-toolbar (lightMode)="changeTheme($event)"></app-toolbar>
+</div>
+
+<div class="chat-home flex justify-content-center align-items-center text-align-center min-h-screen" >
+    <div class="chat-caption text-700 text-center center">
+        <div class="text-blue-600 font-bold mb-3"><i class="pi pi-cloud"></i>&#160;FestivalGPT</div>
+        <div class="text-900 font-bold text-5xl mb-3"></div>
+        <h1 class="text-dark-600">
+            Welches Festival ist dein nächstes?
+        </h1>
+        <div class="text-700 text-2xl mb-5">Festival-Ready bei jedem Wetter! Deine personalisierte Packliste abgestimmt auf das Wetter - dank KI!</div>
+        <div class="flex flex-column align-items-center gap-2">
+            <span class="slidedown-icon h-2rem w-2rem bg-secondary border-circle inline-flex align-items-center justify-content-center">
+                <p-button icon="pi pi-arrow-down" [rounded]="true" severity="secondary" (onClick)="scrollToTop()" />
+            </span>
+        </div>
+    </div>
+</div>
 <router-outlet></router-outlet>
