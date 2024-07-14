@@ -1,0 +1,10 @@
+.toolbar {
+    flex: 1
+}
+
+.chat-home {
+    background-image: url("../assets/festival3.png");
+    background-size: contain;
+    background-size: cover;
+    background-color: black;
+}
