@@ -14,7 +14,7 @@
     "@angular-eslint/eslint-plugin": "^18.0.1",
     "@angular-eslint/eslint-plugin-template": "^18.0.1",
     "@angular-eslint/template-parser": "^18.0.1",
-    "@angular/cli": "~18.0.0",
+    "@angular/cli": "^18.1.0",
     "@angular/compiler-cli": "~18.0.0",
     "@angular/language-service": "~18.0.0",
     "@nx/angular": "^19.4.3",
@@ -32,7 +32,7 @@
     "@typescript-eslint/utils": "^8.0.0-alpha.28",
     "eslint": "~8.57.0",
     "eslint-config-prettier": "^9.0.0",
-    "nx": "19.4.3",
+    "nx": "^19.4.3",
     "nx-dokku": "^1.1.0",
     "prettier": "^2.6.2",
     "typescript": "~5.4.2"
@@ -46,6 +46,9 @@
     "@angular/platform-browser": "~18.0.0",
     "@angular/platform-browser-dynamic": "~18.0.0",
     "@angular/router": "~18.0.0",
+    "primeflex": "^3.3.1",
+    "primeicons": "^7.0.0",
+    "primeng": "^17.18.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

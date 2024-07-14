@@ -21,7 +21,20 @@
             "input": "apps/app/public"
           }
         ],
-        "styles": ["apps/app/src/styles.css"],
+        "styles": [
+          "apps/app/src/styles.css",
+          {
+            "input": "apps/app/src/dark-theme.css",
+            "bundleName": "dark-theme",
+            "inject": false
+          },
+          {
+            "input": "apps/app/src/light-theme.css",
+            "bundleName": "light-theme",
+            "inject": false
+          },
+          "node_modules/primeng/resources/primeng.min.css"
+        ],
         "scripts": []
       },
       "configurations": {
