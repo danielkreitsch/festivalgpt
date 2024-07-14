@@ -2,7 +2,7 @@ package de.festivalgpt.backend.model
 
 import java.util.*
 
-data class ChatbotRequest(
+data class ChatRequest(
     val userId: UUID,
     val chatId: UUID,
     val message: String,
