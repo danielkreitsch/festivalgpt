@@ -1,6 +1,7 @@
 server:
   port: ${PORT:8080}
 spring:
+  application.name: "festivalgpt"
   main.banner-mode: "off"
   output.ansi.enabled: always
   security:
@@ -8,9 +9,9 @@ spring:
       name: user
       password: disabled
   datasource:
-    url: "jdbc:mariadb://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE}?autoReconnect=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
-    username: ${MYSQL_USER}
-    password: ${MYSQL_PASSWORD}
+    url: "jdbc:mariadb://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:${spring.application.name}}?autoReconnect=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
+    username: ${MYSQL_USER:user}
+    password: ${MYSQL_PASSWORD:password}
     driver-class-name: org.mariadb.jdbc.Driver
   jpa:
     database-platform: "org.hibernate.dialect.MariaDBDialect"
@@ -23,7 +24,7 @@ spring:
         host: ${QDRANT_HOST:localhost}
         port: ${QDRANT_PORT:6334}
         api-key: ${QDRANT_API_KEY:}
-        collection-name: ${QDRANT_COLLECTION_NAME:festivalgpt}
+        collection-name: ${QDRANT_COLLECTION_NAME:${spring.application.name}}
 logging:
   level:
     root: info
