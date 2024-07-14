@@ -1,42 +1,63 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# compiled output
-dist
-tmp
-/out-tsc
-
-# dependencies
-node_modules
+# System Files
+.DS_Store
+Thumbs.db
 
 # IDEs and editors
-/.idea
-.project
-.classpath
+.idea/
+.vscode/
+.vs/
+.project/
+.classpath/
 .c9/
-*.launch
 .settings/
+.consulo/
+*.launch
 *.sublime-workspace
-
-# IDE - VSCode
-.vscode/*
+*.booproj
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.svd
+*.tmp
+*.user
+*.userprefs
+*.VC.db
+*.opendb
+*.mdb
+*.mdb.meta
+*.pidb
+*.pidb.meta
+*.pdb
+*.pdb.meta
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
+# Node
+/node_modules/
 
-# System Files
-.DS_Store
-Thumbs.db
+# Misc
+coverage/
+typings/
+.sass-cache/
+*.env
+*.log
+connect.lock
+sysinfo.txt
 
-.nx/cache
-.nx/workspace-data
+# Nx
+/dist/
+/tmp/
+.nx/cache/
+.nx/workspace-data/
+
+# Spring Boot
+/apps/*/build/
+.gradle/
+/apps/*/application.yml
+
+# Angular
+.angular/
+environment.ts

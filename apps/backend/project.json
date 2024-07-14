@@ -1,0 +1,86 @@
+{
+  "name": "backend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/backend/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nxrocks/nx-spring-boot:build",
+      "options": {
+        "root": "apps/backend"
+      },
+      "dependsOn": ["^install"],
+      "outputs": ["{workspaceRoot}/apps/backend/build"]
+    },
+    "install": {
+      "executor": "@nxrocks/nx-spring-boot:install",
+      "options": {
+        "root": "apps/backend"
+      },
+      "dependsOn": ["^install"],
+      "outputs": ["{workspaceRoot}/apps/backend/build"]
+    },
+    "test": {
+      "executor": "@nxrocks/nx-spring-boot:test",
+      "options": {
+        "root": "apps/backend"
+      },
+      "outputs": ["{workspaceRoot}/apps/backend/build"]
+    },
+    "clean": {
+      "executor": "@nxrocks/nx-spring-boot:clean",
+      "options": {
+        "root": "apps/backend"
+      }
+    },
+    "run": {
+      "executor": "@nxrocks/nx-spring-boot:run",
+      "options": {
+        "root": "apps/backend"
+      },
+      "dependsOn": ["^install"]
+    },
+    "serve": {
+      "executor": "@nxrocks/nx-spring-boot:serve",
+      "options": {
+        "root": "apps/backend"
+      },
+      "dependsOn": ["^install"]
+    },
+    "build-image": {
+      "executor": "@nxrocks/nx-spring-boot:build-image",
+      "options": {
+        "root": "apps/backend"
+      },
+      "outputs": ["{workspaceRoot}/apps/backend/build"]
+    },
+    "build-info": {
+      "executor": "@nxrocks/nx-spring-boot:build-info",
+      "options": {
+        "root": "apps/backend"
+      }
+    },
+    "apply-format": {
+      "executor": "@nxrocks/nx-spring-boot:apply-format",
+      "options": {
+        "root": "apps/backend"
+      }
+    },
+    "check-format": {
+      "executor": "@nxrocks/nx-spring-boot:check-format",
+      "options": {
+        "root": "apps/backend"
+      }
+    },
+    "deploy": {
+      "executor": "nx-dokku:deploy-dist",
+      "dependsOn": ["build"],
+      "options": {
+        "path": "dist/apps/backend",
+        "host": "s1.glowdragon.de",
+        "app": "festivalgpt-backend"
+      }
+    }
+  },
+  "tags": []
+}

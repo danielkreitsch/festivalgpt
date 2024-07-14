@@ -1,0 +1,36 @@
+services:
+  mysql:
+    image: mariadb:latest
+    environment:
+      MARIADB_ROOT_PASSWORD: password
+      MARIADB_DATABASE: festivalgpt
+      MARIADB_USER: user
+      MARIADB_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: password
+      UPLOAD_LIMIT: 100G
+    ports:
+      - "3307:80"
+    depends_on:
+      - mysql
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports:
+      - 6333:6333
+      - 6334:6334
+    configs:
+      - source: qdrant-config
+        target: /qdrant/config/production.yaml
+    volumes:
+      - ./qdrant-data:/qdrant/storage
+configs:
+  qdrant-config:
+    content: |
+      log_level: INFO

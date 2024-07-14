@@ -2,12 +2,16 @@
   "name": "@festivalgpt/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "infra": "nx exec -- docker-compose -f tools/infra/docker-compose.yml up"
+  },
+  "nx": {},
   "private": true,
-  "dependencies": {},
   "devDependencies": {
     "@nx/js": "19.4.3",
     "@nx/workspace": "19.4.3",
-    "nx": "19.4.3"
+    "@nxrocks/nx-spring-boot": "^10.2.1",
+    "nx": "19.4.3",
+    "nx-dokku": "^1.1.0"
   }
 }
