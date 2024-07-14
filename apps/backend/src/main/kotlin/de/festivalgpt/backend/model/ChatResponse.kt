@@ -1,9 +1,10 @@
 package de.festivalgpt.backend.model
 
+import io.swagger.v3.oas.annotations.media.Schema
 import java.util.*
 
 data class ChatResponse(
-    val chatId: UUID,
-    val message: String,
-    val festivals: List<Festival> = emptyList()
+    @Schema(description = "Unique identifier for the chat session") val chatId: UUID,
+    @Schema(description = "Response message") val message: String,
+    @Schema(description = "List of relevant festivals") val festivals: List<Festival> = emptyList()
 )
