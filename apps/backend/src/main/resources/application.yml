@@ -1,0 +1,30 @@
+server:
+  port: ${PORT:8080}
+spring:
+  main.banner-mode: "off"
+  output.ansi.enabled: always
+  datasource:
+    url: "jdbc:mariadb://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE}?autoReconnect=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    database-platform: "org.hibernate.dialect.MariaDBDialect"
+    hibernate.ddl-auto: update
+    show-sql: false
+    open-in-view: false
+  ai:
+    vectorstore:
+      qdrant:
+        host: ${QDRANT_HOST:localhost}
+        port: ${QDRANT_PORT:6334}
+        api-key: ${QDRANT_API_KEY:}
+        collection-name: ${QDRANT_COLLECTION_NAME:festivalgpt}
+logging:
+  level:
+    root: info
+    org.springframework: info
+    de.festivalgpt: ${LOG_LEVEL:info}
+anthropic:
+  api:
+    key: ${ANTHROPIC_API_KEY}

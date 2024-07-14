@@ -1,0 +1,6 @@
+logging.pattern.console: "%d{HH:mm:ss.SSS} %clr(%-5p) %15.15t %clr(%-40.40logger{0}){cyan} | %customHighlight(%m) %n"
+
+MYSQL_HOST: localhost
+MYSQL_USER: user
+MYSQL_PASSWORD: password
+MYSQL_DATABASE: festivalgpt
