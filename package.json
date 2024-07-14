@@ -33,6 +33,7 @@
     "eslint": "~8.57.0",
     "eslint-config-prettier": "^9.0.0",
     "nx": "^19.4.3",
+    "nx-angular-env": "^1.0.0",
     "nx-dokku": "^1.1.0",
     "prettier": "^2.6.2",
     "typescript": "~5.4.2"
