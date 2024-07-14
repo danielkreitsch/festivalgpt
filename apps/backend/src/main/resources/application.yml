@@ -3,6 +3,10 @@ server:
 spring:
   main.banner-mode: "off"
   output.ansi.enabled: always
+  security:
+    user:
+      name: user
+      password: disabled
   datasource:
     url: "jdbc:mariadb://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE}?autoReconnect=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
     username: ${MYSQL_USER}

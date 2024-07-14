@@ -1,0 +1,53 @@
+### Variables
+@baseUrl = http://localhost:8080/api/chatbot
+@contentType = application/json
+
+### Frage nach elektronischen Musikfestivals am Wasser
+POST {{baseUrl}}/query
+Content-Type: {{contentType}}
+
+{
+  "userId": "123e4567-e89b-12d3-a456-426614174000",
+  "chatId": "987e6543-e21b-12d3-a456-426614174001",
+  "message": "Wie wird das Wetter auf dem Sea You Festival?"
+}
+
+### Frage nach alternativen Musikfestivals in Berlin
+POST {{baseUrl}}/query
+Content-Type: {{contentType}}
+
+{
+  "userId": "456e7890-e89b-12d3-a456-426614174002",
+  "chatId": "654e3210-e21b-12d3-a456-426614174003",
+  "message": "Ich suche nach einem Festival für alternative Musik in Hamburg. Hast du Empfehlungen?"
+}
+
+### Frage nach Rock-Festivals in Österreich
+POST {{baseUrl}}/query
+Content-Type: {{contentType}}
+
+{
+  "userId": "789e0123-e89b-12d3-a456-426614174004",
+  "chatId": "321e9876-e21b-12d3-a456-426614174005",
+  "message": "Welches große Rock-Festival findet jährlich in Österreich statt?"
+}
+
+### Frage nach einem bekannten Rock-Festival in Nürnberg
+POST {{baseUrl}}/query
+Content-Type: {{contentType}}
+
+{
+  "userId": "321e9876-e89b-12d3-a456-426614174006",
+  "chatId": "789e0123-e21b-12d3-a456-426614174007",
+  "message": "Gibt es ein berühmtes Rock-Festival in der Nähe von Nürnberg?"
+}
+
+### Frage nach einem Metal-Festival in Ostdeutschland
+POST {{baseUrl}}/query
+Content-Type: {{contentType}}
+
+{
+  "userId": "654e3210-e89b-12d3-a456-426614174008",
+  "chatId": "456e7890-e21b-12d3-a456-426614174009",
+  "message": "Ich bin auf der Suche nach einem harten Metal-Festival in Ostdeutschland. Welches würdest du empfehlen?"
+}
