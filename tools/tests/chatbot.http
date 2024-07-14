@@ -1,5 +1,5 @@
 ### Variables
-@baseUrl = http://localhost:8080/api/chat
+@baseUrl = {{apiUrl}}/api/chat
 @contentType = application/json
 
 ### Frage nach dem Wetter auf dem Sea You Festival
