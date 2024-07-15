@@ -26,11 +26,11 @@ class DynamicQueryService(private val jdbcTemplate: JdbcTemplate) {
 
   private fun isQuerySafe(query: String): Boolean {
     val lowercaseQuery = query.lowercase()
-    return lowercaseQuery.startsWith("select") &&
-        !lowercaseQuery.contains("drop") &&
-        !lowercaseQuery.contains("delete") &&
-        !lowercaseQuery.contains("truncate") &&
-        !lowercaseQuery.contains("alter") &&
-        !lowercaseQuery.contains("create")
+    return lowercaseQuery.startsWith("select ") &&
+        !lowercaseQuery.contains("drop ") &&
+        !lowercaseQuery.contains("delete ") &&
+        !lowercaseQuery.contains("truncate ") &&
+        !lowercaseQuery.contains("alter ") &&
+        !lowercaseQuery.contains("create ")
   }
 }
