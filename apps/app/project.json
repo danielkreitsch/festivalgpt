@@ -17,6 +17,9 @@
         "polyfills": ["zone.js"],
         "tsConfig": "apps/app/tsconfig.app.json",
         "assets": [
+          "apps/app/src/assets/icons",
+          "apps/app/src/assets",
+          "apps/app/src/assets/icons/festivalGPT.webp",
           {
             "glob": "**/*",
             "input": "apps/app/public"

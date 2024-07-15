@@ -1,7 +1,12 @@
-<p-toolbar styleClass="navbar bg-transparent border-noround" (scroll)="onWindowScroll();">
+<p-toolbar styleClass="navbar bg-transparent p-2" (scroll)="onWindowScroll();">
     <ng-template pTemplate="start">
         <div class="flex flex-wrap align-items-center gap-3 pt-2 pl-2">
-            FestivalGPT
+            <div>
+                <img src="../../../../assets/icons/festivalGPT.webp" width="41px" height="auto">
+            </div>
+            <div class="text text-color-primary">
+                FestivalGPT
+            </div>
         </div>
     </ng-template>
     <ng-template pTemplate="end">

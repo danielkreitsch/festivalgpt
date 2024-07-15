@@ -1,4 +1,4 @@
-import { Component } from "@angular/core"
+import { Component, OnInit } from "@angular/core"
 import { RouterModule } from "@angular/router"
 import { ThemeService } from "../theme-service";
 import { SidebarModule } from 'primeng/sidebar';
@@ -17,12 +17,35 @@ import { BaseInterceptor } from "./shared/interceptors/base/base.interceptor";
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: BaseInterceptor, multi: true }  ],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   constructor(private themeService: ThemeService) {}
 
   title = "app"
   sidebarVisible = false;
+
+  lat: number | undefined;
+  lng: number | undefined;
+
+  public ngOnInit(): void {
+    this.getLocation();
+  }
+
+  getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position: any) => {
+        if (position) {
+          console.log("Latitude: " + position.coords.latitude +
+            "Longitude: " + position.coords.longitude);
+          this.lat = position.coords.latitude;
+          this.lng = position.coords.longitude;
+        }
+      },
+        (error) => console.log(error));
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
 
   changeTheme(lightMode: boolean) {
     if (lightMode) {
