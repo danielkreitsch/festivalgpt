@@ -8,7 +8,7 @@ Content-Type: {{contentType}}
 
 {
   "userId": "123e4567-e89b-12d3-a456-426614174000",
-  "message": "Wie wird das Wetter auf dem Sea You Festival?"
+  "message": "Welche Festivals finden 2024 in 100 km Umkreis von Ingolstadt statt?"
 }
 
 ### Frage nach anstehenden Festivals mit den besten Wetteraussichten im Raum Hamburg
@@ -27,4 +27,13 @@ Content-Type: {{contentType}}
 {
   "userId": "789e0123-e89b-12d3-a456-426614174004",
   "message": "Welches große Rock-Festival findet jährlich in Österreich statt? Wie ist das Wetter dort üblicherweise?"
+}
+
+### Frage nach dem Wetter auf dem Deichbrand Festival
+POST {{baseUrl}}/message
+Content-Type: {{contentType}}
+
+{
+  "userId": "789e0123-e89b-12d3-a456-426614174004",
+  "message": "Wie wird das Wetter auf dem Deichbrand Festival?"
 }

@@ -1,5 +1,6 @@
 package de.festivalgpt.backend.controller
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import de.festivalgpt.backend.model.*
 import de.festivalgpt.backend.service.*
 import io.swagger.v3.oas.annotations.Operation
@@ -11,7 +12,8 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/chat")
 class ChatController(
     private val llmQueryService: LlmQueryService,
-    private val weatherService: WeatherService
+    private val weatherService: WeatherService,
+    private val objectMapper: ObjectMapper,
 ) {
   @PostMapping("/message")
   @Operation(
@@ -48,10 +50,8 @@ class ChatController(
                         precipitationProbability = weather.precipitationProbability)
                   })
         }
-
-    return ChatResponse(
-        chatId = "1",
-        message = "Folgende Festivals könnten für dich interessant sein: {{festivals}}",
-        festivals = aggregatedFestivals)
+    val aggregatedFestivalsJson = objectMapper.writeValueAsString(aggregatedFestivals)
+    val message = llmQueryService.generateResponse(request.message, aggregatedFestivalsJson)
+    return ChatResponse(chatId = "1", message = message, festivals = aggregatedFestivals)
   }
 }
