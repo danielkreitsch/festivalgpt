@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/api/chat")
 class ChatController(
-    private val anthropicClient: AnthropicClient,
+    private val llmQueryService: LlmQueryService,
+    private val weatherService: WeatherService
 ) {
   @PostMapping("/message")
   @Operation(
@@ -25,12 +26,32 @@ class ChatController(
                   mediaType = "application/json",
                   schema = Schema(implementation = ChatResponse::class))])
   fun sendMessage(@RequestBody request: ChatRequest): ChatResponse {
-    val aiResponse = anthropicClient.sendMessage(request.message)
-    val relevantFestivals = emptyList<Festival>()
+    val festivals = llmQueryService.findFestivalsByMessage(request.message)
+    val aggregatedFestivals =
+        festivals.map { festival ->
+          val weatherForecast =
+              weatherService.getWeatherForecast(
+                  festival.postalCode.city.id, festival.startDate, festival.endDate)
+          ChatResponse.Festival(
+              id = festival.id,
+              name = festival.name,
+              city = festival.postalCode.city.name,
+              startDate = festival.startDate,
+              endDate = festival.endDate,
+              weatherForecast =
+                  weatherForecast.map { weather ->
+                    ChatResponse.DailyWeather(
+                        date = weather.date,
+                        maxTemperature = weather.maxTemperature,
+                        minTemperature = weather.minTemperature,
+                        precipitationSum = weather.precipitationSum,
+                        precipitationProbability = weather.precipitationProbability)
+                  })
+        }
 
     return ChatResponse(
-        chatId = request.chatId,
-        message = aiResponse.content[0].text,
-        festivals = relevantFestivals)
+        chatId = "1",
+        message = "Folgende Festivals könnten für dich interessant sein: {{festivals}}",
+        festivals = aggregatedFestivals)
   }
 }
