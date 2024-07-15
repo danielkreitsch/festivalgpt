@@ -27,7 +27,7 @@ class FestivalService(
   fun findFestivalsByNameContaining(query: String): List<FestivalAutocompleteResponse> {
     return findAllFestivals()
         .filter { it.name.contains(query, ignoreCase = true) }
-        .map { FestivalAutocompleteResponse(it.id, it.name) }
+        .map { FestivalAutocompleteResponse(it.id, it.name, it.city ?: "Unbekannter Ort", "") }
   }
 
   fun importFestivalsFromCsv(csvFile: String, index: Int, count: Int) {

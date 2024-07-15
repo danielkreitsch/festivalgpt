@@ -1,33 +1,25 @@
 <div class="chat-component flex flex-column min-h-screen max-h-screen justify-content-center flex-wrap">
     <div class="chat-home flex justify-content-center align-items-center text-align-center " >
         <div class=" text-700 text-center center">
-            <div class="text-blue-600 font-bold mb-3"><i class="pi pi-cloud"></i>&#160;FestivalGPT</div>
-            <div class="text-900 font-bold text-5xl mb-3"></div>
             <h1 class="text-dark-600">
-                Auf welches Festival wirst du gehen?
+                Zu welchem Festival möchtest du?
             </h1>
             <div class="text-700 text-2xl mb-5">
                 <div class="flex flex-column gap-2">
                     <p-autoComplete
                     [(ngModel)]="inputText"
-                    placeholder="z.B. Rock am Ring, Southside,..."
+                    placeholder="Festival..."
                     [suggestions]="suggestions"
-                    (keydown)="search()" />
+                    (keydown)="autocompleteFestivals()" />
                 </div>
             </div>
         </div>
     </div>
-    <div *ngIf="festivals.length > 0" class="max-h12-rem overflow-y-auto">
-        <p-card *ngFor="let festival of festivals" [header]="festival.name" subheader="Veranstaltung">
-            <!--<ng-template pTemplate="header">
-                {festival.image}
-            </ng-template>-->
+    <div *ngIf="festival" class="max-h12-rem overflow-y-auto">
+        <p-card [header]="festival.name" [subheader]="festival.city">
             <p>
-             {{festival.name}}
+             {{festival.description}}
             </p>
-            <ng-template pTemplate="footer">
-                    <p-button label="Zur Webseite" class="w-full" styleClass="w-full" />
-            </ng-template>
         </p-card>
     </div>
 </div>

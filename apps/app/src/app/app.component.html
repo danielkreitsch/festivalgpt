@@ -1,19 +1,21 @@
 <div class="home-container fixed min-w-full">
-    <app-toolbar (lightMode)="changeTheme($event)"></app-toolbar>
+  <app-toolbar (lightMode)="changeTheme($event)"></app-toolbar>
 </div>
 
-<div class="chat-home flex justify-content-center align-items-center text-align-center min-h-screen" >
-    <div class="chat-caption text-center center">
-        <div class="text-blue-600 font-bold mb-3 flex justify-content-center align-items-center"><img src="../assets/icons/festivalGPT.webp" width="26px" height="auto"><div>&#160;FestivalGPT</div></div>
-        <h1 class=".text-700">
-            Welches Festival ist dein nächstes?
-        </h1>
-        <div class=".text-700 text-2xl mb-5">Festival-Ready bei jedem Wetter! Deine personalisierte Packliste abgestimmt auf das Wetter - dank KI!</div>
-        <div class="flex flex-column align-items-center gap-2">
-            <span class="slidedown-icon h-2rem w-2rem bg-secondary border-circle inline-flex align-items-center justify-content-center">
-                <p-button icon="pi pi-arrow-down" [rounded]="true" severity="secondary" (onClick)="scrollToTop()" />
-            </span>
-        </div>
+<div class="chat-home flex justify-content-center align-items-center text-align-center min-h-screen">
+  <div class="chat-caption text-700 text-center center">
+    <h1 class="text-dark-600">
+      FestivalGPT
+    </h1>
+    <div class="text-700 text-2xl mb-5">
+      Dein persönlicher Festivalguide: Immer up-to-date, immer informiert
     </div>
+    <div class="flex flex-column align-items-center gap-2">
+            <span
+              class="slidedown-icon h-2rem w-2rem bg-secondary border-circle inline-flex align-items-center justify-content-center">
+                <p-button icon="pi pi-arrow-down" [rounded]="true" severity="secondary" (onClick)="scrollToTop()"/>
+            </span>
+    </div>
+  </div>
 </div>
 <router-outlet></router-outlet>

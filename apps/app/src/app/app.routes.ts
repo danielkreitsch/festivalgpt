@@ -3,5 +3,4 @@ import { ChatHomeComponent } from "./chat/containers/chat-home/chat-home.compone
 
 export const appRoutes: Route[] = [
     { path: '', component: ChatHomeComponent},
-    { path: 'home', component: ChatHomeComponent}
 ]

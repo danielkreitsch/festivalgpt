@@ -4,4 +4,5 @@ export interface Festival {
   startDate: string;
   endDate: string;
   city: string;
+  description: string;
 }
