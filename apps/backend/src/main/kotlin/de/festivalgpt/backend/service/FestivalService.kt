@@ -3,6 +3,7 @@ package de.festivalgpt.backend.service
 import de.festivalgpt.backend.model.*
 import de.festivalgpt.backend.repository.*
 import java.io.File
+import java.math.BigDecimal
 import java.time.LocalDate
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
@@ -16,7 +17,6 @@ class FestivalService(
     @Autowired private val festivalRepository: FestivalRepository
 ) {
   private val logger = LoggerFactory.getLogger(this::class.java)
-
   fun findAllFestivals(): List<Festival> {
     return festivalRepository.findAll()
   }
@@ -57,7 +57,13 @@ class FestivalService(
           }
       val city =
           cityRepository.findByNameAndCountry(cityName, country).orElseGet {
-            val newCity = City(name = cityName, country = country)
+            val newCity =
+                City(
+                    name = cityName,
+                    latitude = BigDecimal(0),
+                    longitude = BigDecimal(0),
+                    country = country,
+                    enabled = false)
             cityRepository.save(newCity)
           }
       val postalCode =

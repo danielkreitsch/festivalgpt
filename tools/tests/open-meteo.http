@@ -1,0 +1,56 @@
+### Open-Meteo API Requests
+
+## Geocoding API
+
+# Search for a city
+GET https://geocoding-api.open-meteo.com/v1/search?name=Berlin&count=1&language=de
+
+###
+
+# Search for a city with country code
+GET https://geocoding-api.open-meteo.com/v1/search?name=London,GB&count=1&language=en
+
+###
+
+## Weather Forecast API
+
+# Get daily weather forecast for Berlin (using coordinates from geocoding)
+GET https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max&timezone=auto&start_date=2023-07-15&end_date=2023-07-22
+
+###
+
+# Get daily weather forecast for London (using coordinates from geocoding)
+GET https://api.open-meteo.com/v1/forecast?latitude=51.51&longitude=-0.13&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max&timezone=auto&start_date=2023-07-15&end_date=2023-07-22
+
+###
+
+# Get hourly weather forecast for New York
+GET https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&hourly=temperature_2m,precipitation,weathercode&timezone=America/New_York&start_date=2023-07-15&end_date=2023-07-16
+
+###
+
+# Get current weather for Tokyo
+GET https://api.open-meteo.com/v1/forecast?latitude=35.68&longitude=139.65&current_weather=true&timezone=Asia/Tokyo
+
+###
+
+# Get weather forecast with multiple parameters for Paris
+GET https://api.open-meteo.com/v1/forecast?latitude=48.85&longitude=2.35&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,precipitation_probability_max,windspeed_10m_max,windgusts_10m_max,winddirection_10m_dominant&timezone=Europe/Paris&start_date=2023-07-15&end_date=2023-07-22
+
+###
+
+# Variables:
+@cityName = Berlin
+@countryCode = DE
+@latitude = 52.52
+@longitude = 13.41
+@startDate = 2023-07-15
+@endDate = 2023-07-22
+
+# Geocoding with variables
+GET https://geocoding-api.open-meteo.com/v1/search?name={{cityName}},{{countryCode}}&count=1&language=en
+
+###
+
+# Weather forecast with variables
+GET https://api.open-meteo.com/v1/forecast?latitude={{latitude}}&longitude={{longitude}}&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max&timezone=auto&start_date={{startDate}}&end_date={{endDate}}
