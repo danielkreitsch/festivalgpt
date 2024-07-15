@@ -21,22 +21,36 @@ class OpenMeteoClient(private val objectMapper: ObjectMapper) {
       latitude: Double,
       longitude: Double,
       startDate: LocalDate,
-      days: Int,
+      endDate: LocalDate,
       variables: List<ForecastVariable>
   ): List<DailyWeatherData> {
+    val today = LocalDate.now()
+    val maxEndDate = today.plusDays(15)
+
+    val validStartDate = startDate.coerceAtLeast(today)
+    val validEndDate = endDate.coerceAtMost(maxEndDate)
+
+    if (validStartDate.isAfter(validEndDate)) {
+      return emptyList()
+    }
+
     val url =
         UriComponentsBuilder.fromHttpUrl(forecastBaseUrl)
             .queryParam("latitude", latitude)
             .queryParam("longitude", longitude)
             .queryParam("daily", variables.joinToString(",") { it.apiName })
             .queryParam("timezone", "auto")
-            .queryParam("start_date", startDate)
-            .queryParam("end_date", startDate.plusDays(days.toLong()))
+            .queryParam("start_date", validStartDate)
+            .queryParam("end_date", validEndDate)
             .toUriString()
 
     val response = restClient.get().uri(url).retrieve().body(String::class.java)
 
-    return objectMapper.readValue<ForecastResponse>(response!!).daily.toDailyWeatherDataList()
+    val forecastResponse = objectMapper.readValue<ForecastResponse>(response!!)
+    val fullForecastList = forecastResponse.daily.toDailyWeatherDataList()
+
+    // Filter the results to match the original date range if it was adjusted
+    return fullForecastList.filter { it.date in startDate..endDate }
   }
 
   fun getCoordinates(postalCode: String, cityName: String, countryCode: String): Coordinates? {

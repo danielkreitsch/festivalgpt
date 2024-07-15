@@ -20,11 +20,11 @@ data class City(
     val country: Country,
     @Column(name = "latitude", nullable = true, precision = 10, scale = 8)
     @Schema(description = "Latitude of the city", example = "40.7128")
-    var latitude: BigDecimal?,
+    var latitude: BigDecimal? = null,
     @Column(name = "longitude", nullable = true, precision = 11, scale = 8)
     @Schema(description = "Longitude of the city", example = "-74.0060")
-    var longitude: BigDecimal?,
+    var longitude: BigDecimal? = null,
     @Column(name = "enabled", nullable = false)
     @Schema(description = "Whether the city should be considered", example = "true")
-    var enabled: Boolean
+    var enabled: Boolean = false
 )

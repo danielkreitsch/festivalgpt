@@ -12,7 +12,7 @@ class WeatherService(
     private val cityRepository: CityRepository
 ) {
   @Transactional
-  fun saveWeatherData(cityId: Long, weatherData: List<OpenMeteoClient.DailyWeatherData>) {
+  fun saveWeatherDataForCity(cityId: Long, weatherData: List<OpenMeteoClient.DailyWeatherData>) {
     val city =
         cityRepository.findById(cityId).orElseThrow { IllegalArgumentException("City not found") }
 

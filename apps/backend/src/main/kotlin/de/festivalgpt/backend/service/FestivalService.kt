@@ -28,7 +28,6 @@ class FestivalService(
     return findAllFestivals()
         .filter { it.name.contains(query, ignoreCase = true) }
         .map { FestivalAutocompleteResponse(it.id, it.name) }
-        .take(5)
   }
 
   fun importFestivalsFromCsv(csvFile: String, index: Int, count: Int) {
@@ -56,13 +55,7 @@ class FestivalService(
           }
       val city =
           cityRepository.findByNameAndCountry(cityName, country).orElseGet {
-            val newCity =
-                City(
-                    name = cityName,
-                    country = country,
-                    latitude = null,
-                    longitude = null,
-                    enabled = false)
+            val newCity = City(name = cityName, country = country)
             cityRepository.save(newCity)
           }
       val postalCode =
