@@ -5,7 +5,7 @@ import de.festivalgpt.backend.service.FestivalService
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/api/admin")
+@RequestMapping("/admin")
 class AdminController(private val festivalService: FestivalService) {
   @PostMapping("/import-festivals")
   fun importFestivals(@RequestBody request: ImportFestivalsRequest) {

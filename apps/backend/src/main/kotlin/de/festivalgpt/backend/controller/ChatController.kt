@@ -8,7 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/api/chat")
+@RequestMapping("/chat")
 class ChatController(
     private val llmQueryService: LlmQueryService,
     private val weatherService: WeatherService

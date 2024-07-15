@@ -5,7 +5,7 @@ import de.festivalgpt.backend.service.FestivalService
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/api/festivals")
+@RequestMapping("/festivals")
 class FestivalController(private val festivalService: FestivalService) {
   @GetMapping("/autocomplete")
   fun autocompleteFestivals(@RequestParam query: String): List<FestivalAutocompleteResponse> {
