@@ -3,7 +3,6 @@ package de.festivalgpt.backend.service
 import de.festivalgpt.backend.model.*
 import de.festivalgpt.backend.repository.*
 import java.io.File
-import java.math.BigDecimal
 import java.time.LocalDate
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired

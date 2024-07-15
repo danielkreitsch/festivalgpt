@@ -11,12 +11,4 @@ class FestivalController(private val festivalService: FestivalService) {
   fun autocompleteFestivals(@RequestParam query: String): List<FestivalAutocompleteResponse> {
     return festivalService.findFestivalsByNameContaining(query)
   }
-
-  @PostMapping("/import")
-  fun importFestivals(@RequestBody request: ImportFestivalsRequest) {
-    festivalService.importFestivalsFromCsv(
-        System.getProperty("user.home") + "/.festivalgpt/festivals.csv",
-        request.index,
-        request.count)
-  }
 }
