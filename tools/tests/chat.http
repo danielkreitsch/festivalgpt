@@ -8,7 +8,6 @@ Content-Type: {{contentType}}
 
 {
   "userId": "123e4567-e89b-12d3-a456-426614174000",
-  "chatId": "987e6543-e21b-12d3-a456-426614174001",
   "message": "Wie wird das Wetter auf dem Sea You Festival?"
 }
 
@@ -18,8 +17,7 @@ Content-Type: {{contentType}}
 
 {
   "userId": "456e7890-e89b-12d3-a456-426614174002",
-  "chatId": "654e3210-e21b-12d3-a456-426614174003",
-  "message": "Ich suche nach einem Festival für alternative Musik in Hamburg. Hast du Empfehlungen?"
+  "message": "Ich suche nach einem Festival in Stuttgart. Hast du Empfehlungen für diese Woche?"
 }
 
 ### Frage nach dem üblichen Wetter auf dem großen Rock-Festival in Österreich
@@ -28,6 +26,5 @@ Content-Type: {{contentType}}
 
 {
   "userId": "789e0123-e89b-12d3-a456-426614174004",
-  "chatId": "321e9876-e21b-12d3-a456-426614174005",
   "message": "Welches große Rock-Festival findet jährlich in Österreich statt? Wie ist das Wetter dort üblicherweise?"
 }
