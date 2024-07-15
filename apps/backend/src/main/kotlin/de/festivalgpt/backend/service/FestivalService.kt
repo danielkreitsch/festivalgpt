@@ -60,9 +60,9 @@ class FestivalService(
             val newCity =
                 City(
                     name = cityName,
-                    latitude = BigDecimal(0),
-                    longitude = BigDecimal(0),
                     country = country,
+                    latitude = null,
+                    longitude = null,
                     enabled = false)
             cityRepository.save(newCity)
           }

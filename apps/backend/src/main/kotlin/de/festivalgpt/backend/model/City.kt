@@ -18,12 +18,12 @@ data class City(
     @JoinColumn(name = "country_code", nullable = false)
     @Schema(description = "Country the city belongs to")
     val country: Country,
-    @Column(name = "latitude", nullable = false, precision = 10, scale = 8)
+    @Column(name = "latitude", nullable = true, precision = 10, scale = 8)
     @Schema(description = "Latitude of the city", example = "40.7128")
-    var latitude: BigDecimal,
-    @Column(name = "longitude", nullable = false, precision = 11, scale = 8)
+    var latitude: BigDecimal?,
+    @Column(name = "longitude", nullable = true, precision = 11, scale = 8)
     @Schema(description = "Longitude of the city", example = "-74.0060")
-    var longitude: BigDecimal,
+    var longitude: BigDecimal?,
     @Column(name = "enabled", nullable = false)
     @Schema(description = "Whether the city should be considered", example = "true")
     var enabled: Boolean

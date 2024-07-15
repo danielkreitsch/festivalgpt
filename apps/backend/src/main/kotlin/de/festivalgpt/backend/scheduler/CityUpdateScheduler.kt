@@ -66,7 +66,11 @@ class CityUpdateScheduler(
 
   suspend fun updateWeatherData(city: City) {
     try {
-      val weatherData = fetchWeatherData(city.latitude.toDouble(), city.longitude.toDouble())
+      if (city.latitude == null || city.longitude == null) {
+        logger.error("City ${city.name} has no coordinates. Skipping weather data update.")
+        return
+      }
+      val weatherData = fetchWeatherData(city.latitude!!.toDouble(), city.longitude!!.toDouble())
       weatherService.saveWeatherData(city.id, weatherData)
       logger.info("Updated weather data for city: ${city.name}")
     } catch (e: Exception) {
